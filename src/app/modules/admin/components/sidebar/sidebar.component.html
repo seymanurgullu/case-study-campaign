@@ -1,0 +1,19 @@
+<div class="Container">
+  <aside class="Sidebar">
+    <nav class="mx-5 my-2">
+      <div class="nav-item mb-3" routerLinkActive="active">
+        <a class="nav-link text-white mt-5" routerLink="./home">Kampanya Listeleme
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a class="nav-link text-white" routerLink="./campaign">Kampanya Oluştur</a>
+      </div>
+      <div class="btn nav-item fw-semibold" role="button">
+        <a class="nav-link text-white my-4" (click)="logout()">Çıkış Yap</a>
+      </div>
+    </nav>
+  </aside>
+  <main class="Main">
+          <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,17 @@
+<div>
+  <form [formGroup]="formValue">
+    <div class="mb-3 mx-5 my-5">
+      <label class="form-label">Başlık</label>
+      <input formControlName="title" type="text" class="form-control" id="title">
+    </div>
+    <div class="mb-3 mx-5">
+      <label class="form-label">Açıklama</label>
+      <input formControlName="description" type="text" class="form-control" id="description">
+    </div>
+    <div class="mb-3 mx-5">
+      <label class="form-label">Puan</label>
+      <input formControlName="point" type="number" class="form-control" id="point">
+    </div>
+    <button type="submit" class="btn btn-secondary mx-5" (click)="addCampaign()">Kaydet</button>
+  </form>
+</div>

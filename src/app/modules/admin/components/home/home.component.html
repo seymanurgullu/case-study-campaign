@@ -1,0 +1,67 @@
+<nav class="navbar navbar-light bg-secondary mt-5 mx-5">
+    <h4 style="color: white; text-align: center" class="mx-3">Kampanyalar</h4>
+</nav>
+<div class="p-4 mb-4 bg-light rounded-3 mx-5">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Başlık</th>
+      <th scope="col">Açıklama</th>
+      <th scope="col">Puan</th>
+      <th scope="col">Tarih</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <tr *ngFor="let data of allPoperty">
+      <td>{{data.id}}</td>
+      <td>{{data.title}}</td>
+      <td>{{data.description}}</td>
+      <td>{{data.point}}</td>
+      <td>{{data.date}}</td>
+      <td>
+        <button class="btn btn-outline-primary mx-2" (click)="increasePoint(data.id)">+</button>
+        <button class="btn btn-outline-danger mx-2" (click)="decreasePoint(data.id)">-</button>
+        <button class="btn btn-secondary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="passData(data.id)">Güncelle</button>
+        <button type="button" class="btn btn-danger" (click)="deleteCampaign(data.id)">Sil</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Kampanya Güncelleme</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label class="form-label">Başlık</label>
+            <input formControlName="title" type="text" class="form-control" id="title">
+            <!--<div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+              <div *ngIf="f.title.errors.required">Başlık Zorunludur!</div>
+            </div>-->
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Açıklama</label>
+            <input formControlName="description" type="text" class="form-control" id="description">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Puan</label>
+            <input formControlName="point" type="number" class="form-control" id="point">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" (click)="updateCampaign()">Kaydet</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>

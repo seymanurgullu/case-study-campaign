@@ -1,0 +1,11 @@
+header {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f64f00;
+  &__logo {
+    width: 16.25rem;
+  }
+
+}
